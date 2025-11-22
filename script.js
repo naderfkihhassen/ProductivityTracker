@@ -63,9 +63,9 @@ function finishTimer() {
     completedCount++;
     countDisplay.textContent = completedCount;
     localStorage.setItem("session-count", completedCount);
-    alert("🎉 Work session complete! Take a break!");
+    alert("Work session complete! Take a break!");
   } else {
-    alert("✅ Break over! Ready to work?");
+    alert("Break over! Ready to work?");
   }
 }
 
