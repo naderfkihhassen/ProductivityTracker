@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Productivity Tracker</h1>
+
+      <div class="timer-box">
+        <div class="mode-buttons">
+          <button class="mode-btn active" data-mode="work">Work</button>
+          <button class="mode-btn" data-mode="break">Break</button>
+        </div>
+
+        <div class="timer" id="timer">25:00</div>
+
+        <div class="controls">
+          <button class="btn btn-start" id="start-btn">Start</button>
+          <button class="btn btn-reset" id="reset-btn">Reset</button>
+        </div>
+
+        <div class="info">
+          <p>Completed today: <span id="count">0</span></p>
+        </div>
+      </div>
+
+      <div class="tasks-box">
+        <h2>Tasks</h2>
+        <form id="task-form">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="What are you working on?"
+            required
+          />
+          <button type="submit" class="btn btn-add">Add</button>
+        </form>
+        <div id="task-list"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
