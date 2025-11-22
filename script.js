@@ -13,7 +13,7 @@ const modeBtns = document.querySelectorAll(".mode-btn");
 const countDisplay = document.getElementById("count");
 
 const today = new Date().toDateString();
-const savedDate = localStorage.getItem("session-date");
+const savedDate = localStorage.getItem(" -date");
 
 if (savedDate !== today) {
   localStorage.setItem("session-count", "0");
@@ -31,7 +31,7 @@ function updateDisplay() {
     .padStart(2, "0")}`;
 
   timerDisplay.textContent = display;
-  document.title = isRunning ? `${display} - session` : "session Timer";
+  document.title = isRunning ? `${display} - session` : "Productivity Timer";
 }
 
 function startTimer() {
