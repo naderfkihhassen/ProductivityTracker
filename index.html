@@ -1,48 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productivity Tracker</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <h1>Productivity Tracker</h1>
+        <header>
+            <h1>Productivity Tracker</h1>
+            <p class="subtitle">Stay focused, take breaks</p>
+        </header>
 
-      <div class="timer-box">
-        <div class="mode-buttons">
-          <button class="mode-btn active" data-mode="work">Work</button>
-          <button class="mode-btn" data-mode="break">Break</button>
+        <div class="timer-card">
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="work">Work</button>
+                <button class="mode-btn" data-mode="short">Short Break</button>
+                <button class="mode-btn" data-mode="long">Long Break</button>
+            </div>
+
+            <div class="timer-display">
+                <div class="time" id="timer">25:00</div>
+                <div class="session-info">
+                    <p>Session <span id="session-count">1</span> of 4</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" id="start-btn">Start</button>
+                <button class="btn btn-secondary" id="reset-btn">Reset</button>
+            </div>
+
+            <div class="progress-info">
+                <div class="progress-item">
+                    <span class="label">Today:</span>
+                    <span class="value" id="today-count">0</span> 
+                </div>
+                <div class="progress-item">
+                    <span class="label">Total:</span>
+                    <span class="value" id="total-count">0</span> 
+                </div>
+            </div>
         </div>
 
-        <div class="timer" id="timer">25:00</div>
+        <div class="tasks-card">
+            <h2>Tasks</h2>
+            <form id="task-form">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="What are you working on?"
+                    required
+                >
+                <button type="submit" class="btn btn-add">Add</button>
+            </form>
 
-        <div class="controls">
-          <button class="btn btn-start" id="start-btn">Start</button>
-          <button class="btn btn-reset" id="reset-btn">Reset</button>
+            <div id="task-list" class="task-list">
+                <p class="empty-message">No tasks yet. Add one above!</p>
+            </div>
         </div>
 
-        <div class="info">
-          <p>Completed today: <span id="count">0</span></p>
+        <div class="stats-card">
+            <h2>Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="work-time">0h 0m</div>
+                    <div class="stat-label">Work Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="break-time">0h 0m</div>
+                    <div class="stat-label">Break Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="completed-sessions">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="tasks-box">
-        <h2>Tasks</h2>
-        <form id="task-form">
-          <input
-            type="text"
-            id="task-input"
-            placeholder="What are you working on?"
-            required
-          />
-          <button type="submit" class="btn btn-add">Add</button>
-        </form>
-        <div id="task-list"></div>
-      </div>
+        <div class="settings-card">
+            <h3>Settings</h3>
+            <div class="setting-item">
+                <label for="work-duration">Work Duration (minutes):</label>
+                <input type="number" id="work-duration" value="25" min="1" max="60">
+            </div>
+            <div class="setting-item">
+                <label for="short-duration">Short Break (minutes):</label>
+                <input type="number" id="short-duration" value="5" min="1" max="30">
+            </div>
+            <div class="setting-item">
+                <label for="long-duration">Long Break (minutes):</label>
+                <input type="number" id="long-duration" value="15" min="1" max="60">
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="sound-toggle" checked>
+                    Sound notifications
+                </label>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
